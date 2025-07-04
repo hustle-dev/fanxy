@@ -9,7 +9,7 @@ import importPlugin from 'eslint-plugin-import';
 import nextPlugin from '@next/eslint-plugin-next';
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  { ignores: ['dist', '.next'] },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
