@@ -1,8 +1,9 @@
 import localFont from 'next/font/local';
 import './globals.css';
 
-import ThemeProvider from '~/app/components/ThemeProvider';
-import cn from '~/app/utils/cn';
+import Header from './components/Header';
+import ThemeProvider from './components/ThemeProvider';
+import cn from './utils/cn';
 
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
@@ -23,13 +24,11 @@ const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="ko" suppressHydrationWarning>
       <body className={cn(pretendard.className, 'antialiased')}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-6">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
