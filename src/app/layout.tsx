@@ -1,7 +1,8 @@
 import localFont from 'next/font/local';
 import './globals.css';
 
-import cn from '~/utils/cn';
+import ThemeProvider from '~/app/components/ThemeProvider';
+import cn from '~/app/utils/cn';
 
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
@@ -20,9 +21,16 @@ const metadata: Metadata = {
 
 const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body className={cn(pretendard.className, 'antialiased')}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
