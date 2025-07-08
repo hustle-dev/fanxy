@@ -106,3 +106,81 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
+
+@layer base {
+  ul,
+  ol {
+    list-style-type: revert;
+  }
+}
+
+/* Anchor link styles */
+.anchor {
+  @apply text-muted-foreground/50 invisible absolute -ml-8 px-2 transition-all duration-200 ease-in-out;
+  opacity: 0;
+  transform: translateX(-4px);
+}
+
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+.anchor:hover {
+  @apply text-primary visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.anchor:hover {
+  @apply text-primary scale-105;
+}
+
+/* rehype-pretty-code styles */
+/* Code blocks */
+pre[data-theme] {
+  @apply border-border my-4 overflow-x-auto rounded-xs border p-4;
+}
+
+/* Multiple themes support - using CSS variables */
+code[data-theme*=' '],
+code[data-theme*=' '] span {
+  color: var(--shiki-light);
+}
+
+/* Dark mode styles with next-themes */
+.dark code[data-theme*=' '],
+.dark code[data-theme*=' '] span {
+  color: var(--shiki-dark);
+}
+
+/* Dark theme styles */
+.dark pre[data-theme*=' '] {
+  background-color: rgb(1, 22, 39) !important;
+}
+
+pre[data-theme] code {
+  @apply font-mono text-sm;
+  background: none !important;
+}
+
+/* Inline code */
+:not(pre) > code {
+  @apply bg-muted text-muted-foreground rounded px-1.5 py-0.5 font-mono text-sm font-medium;
+}
+
+/* Inline code in headings */
+h2 > code,
+h3 > code {
+  @apply text-foreground bg-transparent px-0 py-0 text-xl font-bold;
+}
+
+/* Word highlighting */
+.word[data-highlighted-chars] {
+  @apply bg-primary/20 rounded px-1;
+}
+
+/* Title */
+pre[data-title]::before {
+  content: attr(data-title);
+  @apply text-muted-foreground mb-2 block font-mono text-sm;
+}
