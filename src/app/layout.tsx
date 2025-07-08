@@ -26,7 +26,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
       <body className={cn(pretendard.className, 'antialiased')}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-6">
+          <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col px-6">
             {children}
           </main>
         </ThemeProvider>

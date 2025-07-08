@@ -15,7 +15,7 @@ const Header = () => {
   const isDark = theme === 'dark';
   const isHome = pathname === '/';
   return (
-    <header className="mx-auto my-6 flex w-full max-w-3xl flex-1 justify-between px-6">
+    <header className="mx-auto my-6 flex w-full max-w-2xl flex-1 justify-between px-6">
       <nav className="flex items-center">
         <Link
           href="/"
