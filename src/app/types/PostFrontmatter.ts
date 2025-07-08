@@ -4,8 +4,8 @@ interface PostFrontmatter {
   date: string;
   slug: string;
   tags: string[];
-  heroImage: string;
-  heroImageAlt: string;
+  ogImage: string;
+  ogImageAlt: string;
 }
 
 export default PostFrontmatter;
