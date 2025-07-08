@@ -1,13 +1,13 @@
 import type { PropsWithChildren } from 'react';
 
 const MDXComponents = {
-  h2: ({ children }: PropsWithChildren) => (
-    <h2 className="text-foreground mt-10 mb-6 text-2xl font-bold">
+  h2: ({ id, children }: PropsWithChildren<{ id?: string }>) => (
+    <h2 id={id} className="text-foreground mt-10 mb-6 text-2xl font-bold">
       {children}
     </h2>
   ),
-  h3: ({ children }: PropsWithChildren) => (
-    <h3 className="text-foreground mt-8 mb-6 text-xl font-semibold">
+  h3: ({ id, children }: PropsWithChildren<{ id?: string }>) => (
+    <h3 id={id} className="text-foreground mt-8 mb-6 text-xl font-semibold">
       {children}
     </h3>
   ),

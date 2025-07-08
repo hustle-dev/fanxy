@@ -120,7 +120,7 @@ const Page = async ({ params }: Props) => {
                   {
                     content: {
                       type: 'element',
-                      tagName: 'div',
+                      tagName: 'span',
                       properties: {
                         className: ['anchor'],
                       },
