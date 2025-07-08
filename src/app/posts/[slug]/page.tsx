@@ -28,10 +28,11 @@ const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
     };
   }
   const { frontmatter } = post;
-  const { title, description, date, tags, ogImage, ogImageAlt } = frontmatter;
+  const { title, description, date, tags, heroImage, heroImageAlt } =
+    frontmatter;
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? '';
   const postUrl = `${baseUrl}/posts/${slug}`;
-  const ogImageUrl = `${baseUrl}${ogImage}`;
+  const heroImageUrl = `${baseUrl}${heroImage}`;
   return {
     title,
     description,
@@ -44,10 +45,10 @@ const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
       siteName: 'fanxy 블로그',
       images: [
         {
-          url: ogImageUrl,
+          url: heroImageUrl,
           width: 1200,
           height: 630,
-          alt: ogImageAlt,
+          alt: heroImageAlt,
         },
       ],
       locale: 'ko_KR',
@@ -59,7 +60,7 @@ const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
       card: 'summary_large_image',
       title,
       description,
-      images: [ogImageUrl],
+      images: [heroImageUrl],
     },
     alternates: {
       canonical: postUrl,
@@ -99,8 +100,8 @@ const Page = async ({ params }: Props) => {
         </div>
         <div className="my-8 overflow-hidden">
           <img
-            src={frontmatter.ogImage}
-            alt={frontmatter.ogImageAlt}
+            src={frontmatter.heroImage}
+            alt={frontmatter.heroImageAlt}
             className="mx-auto max-h-56 rounded-xs object-contain"
           />
         </div>

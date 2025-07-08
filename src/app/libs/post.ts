@@ -58,8 +58,8 @@ const getAllPostsFrontmatter = async () => {
 const getPost = (postPath: string) => {
   const post = fs.readFileSync(postPath, 'utf8');
   const { data: frontmatter, content } = matter(post);
-  frontmatter.ogImage = copyImageToPublic(
-    frontmatter.ogImage as string,
+  frontmatter.heroImage = copyImageToPublic(
+    frontmatter.heroImage as string,
     postPath,
   );
   return {
