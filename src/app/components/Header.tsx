@@ -4,6 +4,7 @@ import { Moon, Sun } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 import cn from '~/app/utils/cn';
 
@@ -11,9 +12,13 @@ import Button from './Button';
 
 const Header = () => {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === 'dark';
+  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const isDark = resolvedTheme === 'dark';
   const isHome = pathname === '/';
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <header className="mx-auto my-6 flex w-full max-w-2xl flex-1 justify-between px-6">
       <nav className="flex items-center">
@@ -35,20 +40,24 @@ const Header = () => {
           setTheme(isDark ? 'light' : 'dark');
         }}
       >
-        <Sun
-          className={cn(
-            'text-muted-foreground group-hover:text-foreground h-[1rem] w-[1rem] scale-100 rotate-0 transition-all',
-            { 'scale-0 -rotate-90': isDark },
-          )}
-          suppressHydrationWarning
-        />
-        <Moon
-          className={cn(
-            'text-muted-foreground group-hover:text-foreground absolute h-[1rem] w-[1rem] scale-0 rotate-90 transition-all',
-            { 'scale-100 rotate-0': isDark },
-          )}
-          suppressHydrationWarning
-        />
+        {mounted ? (
+          <>
+            <Sun
+              className={cn(
+                'text-muted-foreground group-hover:text-foreground h-[1rem] w-[1rem] scale-100 rotate-0 transition-all',
+                { 'scale-0 -rotate-90': isDark },
+              )}
+            />
+            <Moon
+              className={cn(
+                'text-muted-foreground group-hover:text-foreground absolute h-[1rem] w-[1rem] scale-0 rotate-90 transition-all',
+                { 'scale-100 rotate-0': isDark },
+              )}
+            />
+          </>
+        ) : (
+          <Sun className="text-muted-foreground group-hover:text-foreground h-[1rem] w-[1rem] scale-100 rotate-0 transition-all" />
+        )}
         <span className="sr-only">테마 전환</span>
       </Button>
     </header>
