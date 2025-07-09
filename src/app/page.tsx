@@ -5,14 +5,17 @@ import { getAllPostsFrontmatter } from './libs/post';
 import type PostFrontmatter from './types/PostFrontmatter';
 import type { Metadata } from 'next';
 
+const title = 'fanxy 블로그';
+const description = '허슬하지 않는 사람의 블로그';
+
 const metadata: Metadata = {
-  title: 'fanxy 블로그',
-  description: '허슬하지 않는 사람의 블로그',
+  title,
+  description,
   keywords: ['블로그', '생각정리', '책', '일상', '개발'],
   authors: [{ name: 'fanxy' }],
   openGraph: {
-    title: 'fanxy 블로그',
-    description: '허슬하지 않는 사람의 블로그',
+    title,
+    description,
     url: process.env.NEXT_PUBLIC_BASE_URL ?? '',
     siteName: 'fanxy 블로그',
     locale: 'ko_KR',
@@ -20,8 +23,8 @@ const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'fanxy 블로그',
-    description: '허슬하지 않는 사람의 블로그',
+    title,
+    description,
   },
   alternates: {
     canonical: process.env.NEXT_PUBLIC_BASE_URL ?? '',
