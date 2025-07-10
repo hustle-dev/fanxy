@@ -51,8 +51,8 @@
   --accent: oklch(0.274 0.006 286.033);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --border: oklch(1 0 0 / 0.1);
+  --input: oklch(1 0 0 / 0.15);
   --ring: oklch(0.541 0.281 293.009);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -65,7 +65,7 @@
   --sidebar-primary-foreground: oklch(0.969 0.016 293.756);
   --sidebar-accent: oklch(0.274 0.006 286.033);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-border: oklch(1 0 0 / 0.1);
   --sidebar-ring: oklch(0.541 0.281 293.009);
 }
 
@@ -142,19 +142,19 @@ pre[data-theme] {
 }
 
 /* Multiple themes support - using CSS variables */
-code[data-theme*=' '],
-code[data-theme*=' '] span {
+code[data-theme='night-owl github-light'],
+code[data-theme='night-owl github-light'] span {
   color: var(--shiki-light);
 }
 
 /* Dark mode styles with next-themes */
-.dark code[data-theme*=' '],
-.dark code[data-theme*=' '] span {
+.dark code[data-theme='night-owl github-light'],
+.dark code[data-theme='night-owl github-light'] span {
   color: var(--shiki-dark);
 }
 
 /* Dark theme styles */
-.dark pre[data-theme*=' '] {
+.dark pre[data-theme='night-owl github-light'] {
   background-color: rgb(1, 22, 39) !important;
 }
 
