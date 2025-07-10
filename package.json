@@ -14,6 +14,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "sitemap": "tsx sitemap.config.ts",
     "start": "next start",
     "lint:pt": "prettier --write \"${*}**/*.{ts,tsx,json}\"",
     "lint:es": "eslint .",
@@ -63,6 +64,7 @@
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.13",
     "tailwindcss": "^4.1.11",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.1"
   },
