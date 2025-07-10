@@ -13,12 +13,12 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
-    "sitemap": "tsx sitemap.config.ts",
+    "build": "pnpm sitemap && next build",
     "start": "next start",
     "lint:pt": "prettier --write \"${*}**/*.{ts,tsx,json}\"",
     "lint:es": "eslint .",
     "lint": "concurrently \"pnpm lint:es\" \"pnpm lint:pt\"",
+    "sitemap": "tsx sitemap.config.ts",
     "prepare": "husky"
   },
   "dependencies": {
