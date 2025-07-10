@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import localFont from 'next/font/local';
 import './globals.css';
 
@@ -31,6 +32,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
           </main>
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID ?? ''} />
     </html>
   );
 };
