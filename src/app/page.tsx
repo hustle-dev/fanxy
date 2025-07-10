@@ -20,11 +20,20 @@ const metadata: Metadata = {
     siteName: 'fanxy 블로그',
     locale: 'ko_KR',
     type: 'website',
+    images: [
+      {
+        url: '/OGImage.png',
+        width: 1200,
+        height: 630,
+        alt: 'fanxy 블로그',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title,
     description,
+    images: ['/OGImage.png'],
   },
   alternates: {
     canonical: process.env.NEXT_PUBLIC_BASE_URL ?? '',
