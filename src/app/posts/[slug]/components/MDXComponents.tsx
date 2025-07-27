@@ -47,6 +47,22 @@ const MDXComponents = {
       </a>
     );
   },
+  img: ({ src, alt }: { src?: string; alt?: string }) => {
+    return (
+      <figure className="my-8 block">
+        <img
+          src={src}
+          alt=""
+          className="mx-auto max-h-48 rounded-xs object-contain"
+        />
+        {alt && (
+          <figcaption className="text-muted-foreground block text-center text-sm">
+            {alt}
+          </figcaption>
+        )}
+      </figure>
+    );
+  },
   hr: () => <hr className="border-border my-8" />,
   table: ({ children }: PropsWithChildren) => (
     <div className="my-6 overflow-x-auto">

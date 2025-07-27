@@ -41,6 +41,24 @@ const copyImageToPublic = (imagePath: string, postPath: string): string => {
   return `/posts/${relativePath}/${imageFileName}`;
 };
 
+const processMarkdownImages = (content: string, postPath: string): string => {
+  // 마크다운 이미지 패턴 매칭: ![alt](./image.png) 또는 ![](./image.png)
+  const imageRegex = /!\[(.*?)\]\((\.\/[^)]+)\)/g;
+  return content.replace(
+    imageRegex,
+    (match: string, alt: string, src: string) => {
+      // 상대 경로인 경우만 처리
+      if (src.startsWith('./')) {
+        const processedSrc = copyImageToPublic(src, postPath);
+        // 한글 경로를 URL 인코딩
+        const encodedSrc = encodeURI(processedSrc);
+        return `![${alt}](${encodedSrc})`;
+      }
+      return match;
+    },
+  );
+};
+
 const getPostPaths = async () => await glob(`${POSTS_DIR}/**/*.md`);
 
 const getPostFrontmatter = (postPath: string): PostFrontmatter => {
@@ -62,9 +80,11 @@ const getPost = (postPath: string) => {
     frontmatter.heroImage as string,
     postPath,
   );
+  // 마크다운 콘텐츠 내의 이미지도 처리
+  const processedContent = processMarkdownImages(content, postPath);
   return {
     frontmatter: frontmatter as PostFrontmatter,
-    content,
+    content: processedContent,
   };
 };
 
