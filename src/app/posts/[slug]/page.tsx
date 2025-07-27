@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
 
@@ -112,6 +113,7 @@ const Page = async ({ params }: Props) => {
             mdxOptions: {
               remarkPlugins: [remarkGfm, remarkBreaks],
               rehypePlugins: [
+                [rehypeUnwrapImages],
                 [rehypeSlug],
                 [
                   rehypeAutolinkHeadings,
