@@ -23,7 +23,6 @@ const generateSitemap = async () => {
     priority: '0.7',
   }));
   const allPages = [...staticPages, ...postPages];
-
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages
