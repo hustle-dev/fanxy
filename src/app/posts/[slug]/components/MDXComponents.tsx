@@ -53,10 +53,10 @@ const MDXComponents = {
         <img
           src={src}
           alt=""
-          className="mx-auto max-h-48 rounded-xs object-contain"
+          className="mx-auto max-h-80 rounded-xs object-contain"
         />
         {alt && (
-          <figcaption className="text-muted-foreground block text-center text-sm">
+          <figcaption className="text-muted-foreground mt-4 block text-center text-sm">
             {alt}
           </figcaption>
         )}
